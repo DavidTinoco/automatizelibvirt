@@ -19,9 +19,9 @@ elif [[ $stat2 == 'running' ]]
 then
 	ip2=`virsh net-dhcp-leases br1 | grep mv2 | tr -s " " | cut -d " " -f 6 | cut -d "/" -f 1`
 
-	memava=`ssh -i /home/david/.ssh/jupiter root@$ip2 cat /proc/meminfo | grep MemAvailable | tr -s " " | cut -d " " -f 2`
+	memava2=`ssh -i /home/david/.ssh/jupiter root@$ip2 cat /proc/meminfo | grep MemAvailable | tr -s " " | cut -d " " -f 2`
 	
-	if [[ $memava -lt "60000" ]]
+	if [[ $memava2 -lt "60000" ]]
 	then
 		echo "Aumentando la memoria"
 		virsh setmem mv2 2G --live
