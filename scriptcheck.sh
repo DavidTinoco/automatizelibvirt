@@ -1,6 +1,6 @@
 #! /bin/bash
 
-bash /home/david/Documentos/ASIR/Segundo/HLC/libvirt/inicio.sh
+bash ./inicio.sh
 
 stat1=`virsh list --all | grep mv1 | tr -s " " | cut -d " " -f 4`
 stat2=`virsh list --all | grep mv2 | tr -s " " | cut -d " " -f 4`
@@ -26,7 +26,7 @@ while [[ $statmem1 == 'ok' ]]; do
 
 			echo "Cambiando de máquina"
 
-			bash /home/david/Documentos/ASIR/Segundo/HLC/libvirt/script.sh
+			bash ./script.sh
 
 			statmem1='bad'
 		fi
